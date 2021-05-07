@@ -31,11 +31,11 @@ jobs:
         java-version: '11'
         distribution: 'adopt'
     - name: Grant execute permission for gradlew
-      run: chmod +x gradlew
+      run: chmod +x gradlew      
+    - name: Build with Gradle
       env: 
        USER: ${{ secrets.USER }}
        TOKEN: ${{ secrets.TOKEN }}
-    - name: Build with Gradle
       run: ./gradlew publish
     - uses: actions/upload-artifact@v2
       with:
