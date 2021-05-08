@@ -10,6 +10,7 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Set;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -21,11 +22,12 @@ import io.jsonwebtoken.SignatureAlgorithm;
 
 @Service
 public class JwtService {
-    private static final int EXPIRATION_TIME = 1000 * 60 ;
+	@Value("${jwtvalidator.expiration-time}")
+    private static int EXPIRATION_TIME;
     private static final String AUTHORITIES = "authorities";
     private final String SECRET_KEY;
  
-    public JwtService() {
+    public JwtService(@Value("${jwtvalidator.secret-key}")	String key) {
         SECRET_KEY = Base64.getEncoder().encodeToString("key".getBytes());
     }
  
