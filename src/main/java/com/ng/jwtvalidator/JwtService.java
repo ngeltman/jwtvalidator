@@ -28,7 +28,7 @@ public class JwtService {
     private final String SECRET_KEY;
  
     public JwtService(@Value("${jwtvalidator.secret-key}")	String key) {
-        SECRET_KEY = Base64.getEncoder().encodeToString("key".getBytes());
+        SECRET_KEY = Base64.getEncoder().encodeToString(key.getBytes());
     }
  
     public String createToken(UserDetails userDetails) {

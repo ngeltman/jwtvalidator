@@ -46,7 +46,7 @@ publishing {
         gpr(MavenPublication) {
             groupId = 'com.ng'
             artifactId = 'jwtvalidator'
-            version = '0.4'
+            version = '0.5'
 
             from(components.java)
         }
